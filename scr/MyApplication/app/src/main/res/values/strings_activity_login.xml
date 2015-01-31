@@ -1,7 +1,0 @@
-<resources>
-        <string name="title_activity_login_screen">Enter PC IP address</string>
-    <!-- Strings related to login -->
-    <string name="action_sign_in">Sign in</string>
-    <string name="prompt_IP">Enter IP here</string>
-    <string name="error_field_required">This field is required</string>
-</resources>

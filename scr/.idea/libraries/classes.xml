@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="classes">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/MyApplication/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.2.42/classes.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

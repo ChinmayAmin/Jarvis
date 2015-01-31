@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="wit.sdk">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/MyApplication/app/libs/wit.sdk.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
