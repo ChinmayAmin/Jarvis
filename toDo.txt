@@ -1,6 +1,6 @@
 1) Login screen
 	-Make it pretty
-	-Regex checking
+	-Regex checking - DONE
 	-Background
 2) Splash Screen
 	-Logo?
