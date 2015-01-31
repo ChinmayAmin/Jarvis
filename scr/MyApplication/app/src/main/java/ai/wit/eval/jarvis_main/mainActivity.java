@@ -1,5 +1,7 @@
 package ai.wit.eval.jarvis_main;
 
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.Voice;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -20,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Locale;
 
 import org.json.*;
 
@@ -33,6 +37,7 @@ public class mainActivity extends ActionBarActivity implements IWitListener {
 
     Wit _wit;
     private String serverIP = "";
+    TextToSpeech ttobj = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,14 @@ public class mainActivity extends ActionBarActivity implements IWitListener {
         if (extras != null) {
             serverIP = extras.getString("IP");
         }
+
+        ttobj=new TextToSpeech(getApplicationContext(),
+                new TextToSpeech.OnInitListener() {
+                    @Override
+                    public void onInit(int status) {
+                        ttobj.setLanguage(Locale.UK);
+                    }
+                });
 
     }
 
@@ -120,6 +133,7 @@ public class mainActivity extends ActionBarActivity implements IWitListener {
                 printwriter.flush();
                 printwriter.close();
                 client.close();
+                ttobj.speak("Okay I'll do that", TextToSpeech.QUEUE_FLUSH, null);
                 Log.d("something","SENT");
             }catch(Exception e){}
 
