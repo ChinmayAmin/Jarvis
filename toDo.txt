@@ -1,0 +1,8 @@
+1) Login screen
+	-Make it pretty
+	-Regex checking
+	-Background
+2) Splash Screen
+	-Logo?
+3) port Java server to c++
+
