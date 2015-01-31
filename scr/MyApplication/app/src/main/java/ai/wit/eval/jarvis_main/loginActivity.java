@@ -3,10 +3,12 @@ package ai.wit.eval.jarvis_main;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,17 +20,18 @@ public class loginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
         final Button serverButton = (Button)findViewById(R.id.serverButton);
-        final TextView field = (TextView)findViewById(R.id.IP);
+        final EditText field = (EditText)findViewById(R.id.ip_address);
 
         serverButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(field.getText().toString() != "")
+                if(matchIP(field.getText().toString().trim()))
                 {
                     Intent i = new Intent(getApplicationContext(), mainActivity.class);
                     i.putExtra("IP",field.getText());
                     startActivity(i);
                 }else
                 {
+                    Log.d("WTF", "WHAT");
                     Toast.makeText(getApplicationContext(),"Enter IP",Toast.LENGTH_SHORT);
                 }
             }
@@ -38,8 +41,8 @@ public class loginActivity extends ActionBarActivity {
     //Check whether the input string is current format of an IP address
     private boolean matchIP(String IP)
     {
-        //String regex = "[0-9]+.[0-9]+.[0-9]+.[0-9]+";
-        return false;
+        String regex = "([0-9]){2,4}[.]([0-9]){2,4}[.]([0-9]){2,4}[.]([0-9]){2,4}";
+        return IP.matches(regex);
     }
 
     @Override
