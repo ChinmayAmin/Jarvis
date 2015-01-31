@@ -87,6 +87,8 @@
     <orderEntry type="library" exported="" name="org.apache.commons.io-2.4" level="project" />
     <orderEntry type="library" exported="" name="wit.sdk" level="project" />
     <orderEntry type="library" exported="" name="commons-io-2.4" level="project" />
+    <orderEntry type="library" exported="" name="ion-2.0.5" level="project" />
+    <orderEntry type="library" exported="" name="androidasync-2.0.5" level="project" />
   </component>
 </module>
 

@@ -6,37 +6,25 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MyActivity">
+    tools:context=".MyActivity"
+    android:id="@+id/myLayout"
+    android:background="#f8000000">
 
     <fragment
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:name="ai.wit.eval.jarvis_main.mainActivity$PlaceholderFragment"
         android:layout_centerHorizontal="true"
         tools:layout="@layout/wit_button"
-        />
+        android:id="@+id/myFrag" />
 
-    <TextView
-        android:id="@+id/txtText"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="italic"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:background="#e4e4e4"
-        android:text="The spoken text will show up here"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:text="The semantic results will show up here"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/jsonView"
-        android:background="#e4e4e4"
-        android:maxLines = "100"
-        android:scrollbars = "vertical"
-        />
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/txtText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="#f8000000" />
 
 </RelativeLayout>

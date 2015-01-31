@@ -9,9 +9,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 public class loginActivity extends ActionBarActivity {
 
@@ -19,6 +19,7 @@ public class loginActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
+
         final Button serverButton = (Button)findViewById(R.id.serverButton);
         final EditText field = (EditText)findViewById(R.id.ip_address);
 
@@ -27,7 +28,7 @@ public class loginActivity extends ActionBarActivity {
                 if(matchIP(field.getText().toString().trim()))
                 {
                     Intent i = new Intent(getApplicationContext(), mainActivity.class);
-                    i.putExtra("IP",field.getText());
+                    i.putExtra("IP",field.getText().toString());
                     startActivity(i);
                 }else
                 {
@@ -41,7 +42,7 @@ public class loginActivity extends ActionBarActivity {
     //Check whether the input string is current format of an IP address
     private boolean matchIP(String IP)
     {
-        String regex = "([0-9]){2,4}[.]([0-9]){2,4}[.]([0-9]){2,4}[.]([0-9]){2,4}";
+        String regex = "([0-9]){1,4}[.]([0-9]){1,4}[.]([0-9]){1,4}[.]([0-9]){1,4}";
         return IP.matches(regex);
     }
 

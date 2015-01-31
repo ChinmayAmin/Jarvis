@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -25,7 +26,8 @@ import org.json.*;
 import ai.wit.sdk.IWitListener;
 import ai.wit.sdk.Wit;
 import ai.wit.sdk.model.WitOutcome;
-
+import com.koushikdutta.ion.*;
+import com.koushikdutta.async.util.*;
 
 public class mainActivity extends ActionBarActivity implements IWitListener {
 
@@ -36,6 +38,10 @@ public class mainActivity extends ActionBarActivity implements IWitListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
+        ImageView view = (ImageView)findViewById(R.id.imageView);
+        Ion.with(view).load("http://i.imgur.com/EKV311B.gif");
+
         String accessToken = "QMHHCMETHDYV2E4F3YHQ2N5YDVJQVPVZ";
         _wit = new Wit(accessToken, this);
 
@@ -77,17 +83,17 @@ public class mainActivity extends ActionBarActivity implements IWitListener {
 
     @Override
     public void witDidGraspIntent(ArrayList<WitOutcome> witOutcomes, String messageId, Error error) {
-        TextView jsonView = (TextView) findViewById(R.id.jsonView);
-        jsonView.setMovementMethod(new ScrollingMovementMethod());
+//        TextView jsonView = (TextView) findViewById(R.id.jsonView);
+//        jsonView.setMovementMethod(new ScrollingMovementMethod());
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        if (error != null) {
-            jsonView.setText(error.getLocalizedMessage());
-            return ;
-        }
+//        if (error != null) {
+//            jsonView.setText(error.getLocalizedMessage());
+//            return ;
+//        }
         String jsonOutput = gson.toJson(witOutcomes);
-        jsonView.setText(jsonOutput);
-        ((TextView) findViewById(R.id.txtText)).setText("Done!");
+//        jsonView.setText(jsonOutput);
+        //((TextView) findViewById(R.id.txtText)).setText("Done!");
         new backTask().execute(jsonOutput);
     }
 
@@ -107,6 +113,7 @@ public class mainActivity extends ActionBarActivity implements IWitListener {
 
                 Socket client;
                 PrintWriter printwriter;
+                Log.d("SERVER",serverIP);
                 client = new Socket(serverIP, 4544);
                 printwriter = new PrintWriter(client.getOutputStream(), true);
                 printwriter.write(intent);
@@ -127,17 +134,17 @@ public class mainActivity extends ActionBarActivity implements IWitListener {
 
     @Override
     public void witDidStartListening() {
-        ((TextView) findViewById(R.id.txtText)).setText("Witting...");
+      //  ((TextView) findViewById(R.id.txtText)).setText("Witting...");
     }
 
     @Override
     public void witDidStopListening() {
-        ((TextView) findViewById(R.id.txtText)).setText("Processing...");
+        //((TextView) findViewById(R.id.txtText)).setText("Processing...");
     }
 
     @Override
     public void witActivityDetectorStarted() {
-        ((TextView) findViewById(R.id.txtText)).setText("Listening");
+        //((TextView) findViewById(R.id.txtText)).setText("Listening");
     }
 
     @Override
