@@ -11,7 +11,7 @@
     <fragment
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:name="ai.wit.eval.wit_eval.MyActivity$PlaceholderFragment"
+        android:name="ai.wit.eval.jarvis_main.mainActivity$PlaceholderFragment"
         android:layout_centerHorizontal="true"
         tools:layout="@layout/wit_button"
         />
