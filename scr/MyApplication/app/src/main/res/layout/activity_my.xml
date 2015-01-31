@@ -14,7 +14,7 @@
         android:name="ai.wit.eval.jarvis_main.mainActivity$PlaceholderFragment"
         android:layout_centerHorizontal="true"
         tools:layout="@layout/wit_button"
-        />
+        android:id="@+id/fragment2" />
 
     <TextView
         android:id="@+id/txtText"
@@ -38,5 +38,4 @@
         android:maxLines = "100"
         android:scrollbars = "vertical"
         />
-
 </RelativeLayout>
